@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "453801850363",
+    "project_id": "fir-notifee-fb9aa",
+    "storage_bucket": "fir-notifee-fb9aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453801850363:android:98de1f93cadf7498e7475e",
+        "android_client_info": {
+          "package_name": "com.firebasenotifee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453801850363-330ave0klp18ilotqsrt8oaq7idkj8s3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firebasenotifee",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "453801850363-a9ums70ued30rbqnjkoknjvitdej2dnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQA9d9oZfGdk3SBlV4xkU85zMoIQhw_to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453801850363-a9ums70ued30rbqnjkoknjvitdej2dnv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "453801850363-sub1ffdu0h4eo7k9htifb2qstkbvv5j1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.FirebaseNotifee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
