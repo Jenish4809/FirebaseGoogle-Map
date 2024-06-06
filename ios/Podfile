@@ -1,12 +1,29 @@
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+require 'json'
 
-platform :ios, min_ios_version_supported
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+# Use it to require both react-native's and this package's scripts:
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+
+platform :ios, min_ios_version_supported # Replace with your minimum iOS version supported
 prepare_react_native_project!
+
+setup_permissions([
+  'Camera',
+  'LocationAccuracy',
+  'LocationAlways',
+  'LocationWhenInUse',
+  'PhotoLibrary',
+  'PhotoLibraryAddOnly',
+])
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
@@ -15,6 +32,9 @@ if linkage != nil
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
 end
+
+rn_maps_path = '../node_modules/react-native-maps'
+pod 'react-native-google-maps', :path => rn_maps_path
 
 target 'FirebaseNotifee' do
   config = use_native_modules!

@@ -15,6 +15,7 @@
 		7699B88040F8A987B510C191 /* libPods-FirebaseNotifee-FirebaseNotifeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-FirebaseNotifee-FirebaseNotifeeTests.a */; };
 		7D254FF50A6F635AD5D9868E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0E8A7DE30F96F08C4AE61CBC /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8402A9512C11B47D002CE1AE /* MapSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A9502C11B47D002CE1AE /* MapSwift.swift */; };
 		84F3A8392C0F11B600871D31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F3A8382C0F11B600871D31 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		5B7EB9410499542E8C5724F5 /* Pods-FirebaseNotifee-FirebaseNotifeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseNotifee-FirebaseNotifeeTests.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseNotifee-FirebaseNotifeeTests/Pods-FirebaseNotifee-FirebaseNotifeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-FirebaseNotifee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirebaseNotifee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FirebaseNotifee/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8402A94F2C11B47D002CE1AE /* FirebaseNotifee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseNotifee-Bridging-Header.h"; sourceTree = "<group>"; };
+		8402A9502C11B47D002CE1AE /* MapSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSwift.swift; sourceTree = "<group>"; };
 		84F3A8382C0F11B600871D31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig"; path = "Target Support Files/Pods-FirebaseNotifee-FirebaseNotifeeTests/Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -91,6 +94,7 @@
 		13B07FAE1A68108700A75B9A /* FirebaseNotifee */ = {
 			isa = PBXGroup;
 			children = (
+				8402A9502C11B47D002CE1AE /* MapSwift.swift */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -99,6 +103,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				0E8A7DE30F96F08C4AE61CBC /* PrivacyInfo.xcprivacy */,
+				8402A94F2C11B47D002CE1AE /* FirebaseNotifee-Bridging-Header.h */,
 			);
 			name = FirebaseNotifee;
 			sourceTree = "<group>";
@@ -215,7 +220,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -420,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				8402A9512C11B47D002CE1AE /* MapSwift.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-FirebaseNotifee-FirebaseNotifeeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -466,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = FirebaseNotifeeTests/Info.plist;
@@ -507,6 +515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FirebaseNotifee;
+				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseNotifee-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -533,6 +542,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FirebaseNotifee;
+				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseNotifee-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

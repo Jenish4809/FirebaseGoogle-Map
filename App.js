@@ -12,11 +12,11 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Map" component={Map} />
         <Stack.Screen
           name="TestFirestNotification"
           component={TestFirestNotification}
         />
-        <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
