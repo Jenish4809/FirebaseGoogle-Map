@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TestFirestNotification from './Src/Notification/TestFirestNotification';
 import Home from './Src/Notification/Home';
 import Map from './Src/Notification/Map';
+import RegisterUser from './Src/Notification/RegisterUser';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -12,11 +13,12 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Map" component={Map} />
         <Stack.Screen
           name="TestFirestNotification"
           component={TestFirestNotification}
         />
+        <Stack.Screen name="RegisterUser" component={RegisterUser} />
+        <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>

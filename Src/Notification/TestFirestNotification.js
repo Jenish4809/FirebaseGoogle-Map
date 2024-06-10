@@ -1,25 +1,3 @@
-// import {StyleSheet, Text, View} from 'react-native';
-// import React from 'react';
-// import CSafeAreaView from '../Common/CSafeAreaView';
-
-// export default function TestFirestNotification() {
-//   return (
-//     <CSafeAreaView extraStyle={{backgroundColor: 'transparent'}}>
-//       <View style={styles.main}>
-//         <Text>TestFirestNotification</Text>
-//       </View>
-//     </CSafeAreaView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   main: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-// });
-
 import {
   Alert,
   Button,
@@ -41,6 +19,24 @@ export default function TestFirestNotification({navigation}) {
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [userData, setUserData] = React.useState({});
+  const [confirm, setConfirm] = React.useState(null);
+  const [code, setCode] = React.useState('');
+
+  async function signInWithPhoneNumber(phoneNumber) {
+    const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+    Alert.alert('Code sent');
+    setConfirm(confirmation);
+  }
+
+  async function confirmCode() {
+    try {
+      await confirm.confirm(code);
+      Alert.alert('Code confirmed');
+      navigation.navigate('Map');
+    } catch (error) {
+      Alert.alert('Invalid code.');
+    }
+  }
 
   const onGoogleButtonPress = async () => {
     try {
@@ -52,9 +48,7 @@ export default function TestFirestNotification({navigation}) {
 
       // Sign-in the user with the credential
       await auth().signInWithCredential(googleCredential);
-      navigation.navigate('Map', {
-        user,
-      });
+      navigation.navigate('Map');
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // Handle the user canceling the sign-in request
@@ -93,19 +87,7 @@ export default function TestFirestNotification({navigation}) {
   };
 
   const onPressRegister = async () => {
-    try {
-      const response = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(name, password);
-      if (response) {
-        Alert.alert('User Registered Successfully');
-        setName('');
-        setPassword('');
-      }
-    } catch (error) {
-      console.log('Error in onPressRegister', error);
-      Alert.alert('User already Exist');
-    }
+    navigation.navigate('RegisterUser');
   };
 
   const onPressLogin = async () => {
@@ -115,9 +97,7 @@ export default function TestFirestNotification({navigation}) {
         .signInWithEmailAndPassword(name, password);
       if (response) {
         Alert.alert('User Logged In Successfully');
-        navigation.navigate('Map', {
-          user: response.user,
-        });
+        navigation.navigate('Map');
       }
     } catch (error) {
       console.log('Error in onPressLogin', error);
@@ -157,9 +137,21 @@ export default function TestFirestNotification({navigation}) {
             onChangeText={onChangePassword}
             placeholderTextColor={'gray'}
           />
+          <TextInput
+            placeholder="Enter Code"
+            style={styles.inputsty}
+            value={code}
+            onChangeText={text => setCode(text)}
+            placeholderTextColor={'gray'}
+          />
+          <Button
+            title="Send Code"
+            onPress={() => signInWithPhoneNumber('+91 7265079268')}
+          />
           <Button title="Register" onPress={onPressRegister} />
           <Button title="Login" onPress={onPressLogin} />
           <Button title="Google Sign In" onPress={onGoogleButtonPress} />
+          <Button title="Confirm Code" onPress={() => confirmCode()} />
         </View>
       </View>
     </CSafeAreaView>
