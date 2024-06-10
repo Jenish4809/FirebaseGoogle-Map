@@ -33,6 +33,7 @@
 		84351D572C141EA60039A52C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84351D442C141EA60039A52C /* SimpleLineIcons.ttf */; };
 		84351D582C141EA60039A52C /* FontAwesome6_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84351D452C141EA60039A52C /* FontAwesome6_Brands.ttf */; };
 		84351D592C141EA60039A52C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84351D462C141EA60039A52C /* MaterialIcons.ttf */; };
+		84636D442C16BB1200869A87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84636D432C16BB1200869A87 /* GoogleService-Info.plist */; };
 		ABCD10CC4CA70F8EEEDD414C /* Pods_FirebaseNotifee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94DB90D20BCE58EB7E9282F /* Pods_FirebaseNotifee.framework */; };
 		D5CEADEABFCF7F27DF8E3901 /* Pods_FirebaseNotifee_FirebaseNotifeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76E8D2C3A75D042AE2CC409 /* Pods_FirebaseNotifee_FirebaseNotifeeTests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		84351D442C141EA60039A52C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		84351D452C141EA60039A52C /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		84351D462C141EA60039A52C /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		84636D432C16BB1200869A87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig"; path = "Target Support Files/Pods-FirebaseNotifee-FirebaseNotifeeTests/Pods-FirebaseNotifee-FirebaseNotifeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A94DB90D20BCE58EB7E9282F /* Pods_FirebaseNotifee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseNotifee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76E8D2C3A75D042AE2CC409 /* Pods_FirebaseNotifee_FirebaseNotifeeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseNotifee_FirebaseNotifeeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				84636D432C16BB1200869A87 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* FirebaseNotifee */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FirebaseNotifeeTests */,
@@ -341,6 +344,7 @@
 				84351D4B2C141EA60039A52C /* Entypo.ttf in Resources */,
 				7D254FF50A6F635AD5D9868E /* PrivacyInfo.xcprivacy in Resources */,
 				84351D4C2C141EA60039A52C /* FontAwesome5_Brands.ttf in Resources */,
+				84636D442C16BB1200869A87 /* GoogleService-Info.plist in Resources */,
 				84351D592C141EA60039A52C /* MaterialIcons.ttf in Resources */,
 				84351D582C141EA60039A52C /* FontAwesome6_Brands.ttf in Resources */,
 				84351D532C141EA60039A52C /* FontAwesome.ttf in Resources */,
