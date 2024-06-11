@@ -104,7 +104,7 @@ export default function Map({navigation}) {
               color: 'black',
             }}
             onPress={() => {
-              navigation.navigate('RegisterUser');
+              navigation.navigate('Home');
             }}
           />
         </View>

@@ -3,7 +3,7 @@ import React from 'react';
 import CSafeAreaView from '../Common/CSafeAreaView';
 import {firebase} from '@react-native-firebase/auth';
 
-export default function RegisterUser() {
+export default function RegisterUser({navigation}) {
   const [email, setEmail] = React.useState('');
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -29,16 +29,17 @@ export default function RegisterUser() {
     if (password === confirmPassword) {
       if (name && email && password) {
         try {
-          //   const response = await firebase
-          //     .auth()
-          //     .createUserWithEmailAndPassword(name, password);
-          //   if (response) {
-          //     Alert.alert('User Registered Successfully');
-          //     setName('');
-          //     setEmail('');
-          //     setPassword('');
-          //     setConfirmPassword('');
-          //   }
+          const response = await firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password);
+          if (response) {
+            Alert.alert('User Registered Successfully');
+            navigation.navigate('Map');
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+          }
         } catch (error) {
           console.log('Error in onPressRegister', error);
           Alert.alert('User already Exist');
@@ -82,7 +83,7 @@ export default function RegisterUser() {
             onChangeText={onchangeConfirmPassword}
             value={confirmPassword}
           />
-          <Button title="Register" onPress={onPressRegister} />
+          <Button title="Register" onPress={onPressRegisterDone} />
         </View>
       </View>
     </CSafeAreaView>
