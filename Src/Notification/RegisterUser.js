@@ -1,7 +1,8 @@
 import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import CSafeAreaView from '../Common/CSafeAreaView';
-import {firebase} from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth, {firebase} from '@react-native-firebase/auth';
 
 export default function RegisterUser({navigation}) {
   const [email, setEmail] = React.useState('');
@@ -29,12 +30,32 @@ export default function RegisterUser({navigation}) {
     if (password === confirmPassword) {
       if (name && email && password) {
         try {
-          const response = await firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password);
+          const response = await auth().createUserWithEmailAndPassword(
+            email,
+            password,
+          );
           if (response) {
+            await firebase
+              .firestore()
+              .collection('Users')
+              .doc(response.user.uid)
+              .set({
+                email: email,
+                name: name,
+                uid: response.user.uid,
+              });
+            await firebase
+              .firestore()
+              .collection('Users')
+              .where('uid', '==', response.user.uid)
+              .get()
+              .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                  AsyncStorage.setItem('user', JSON.stringify(doc.data()));
+                });
+              });
             Alert.alert('User Registered Successfully');
-            navigation.navigate('Map');
+            navigation.navigate('UserDetails');
             setName('');
             setEmail('');
             setPassword('');
@@ -47,8 +68,6 @@ export default function RegisterUser({navigation}) {
       }
     }
   };
-
-  const onPressRegister = () => {};
 
   return (
     <CSafeAreaView extraStyle={{backgroundColor: 'transparent'}}>

@@ -4,6 +4,7 @@ import TestFirestNotification from './Src/Notification/TestFirestNotification';
 import Home from './Src/Notification/Home';
 import Map from './Src/Notification/Map';
 import RegisterUser from './Src/Notification/RegisterUser';
+import UserDetails from './Src/Notification/UserDetails';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -18,6 +19,7 @@ export default function App() {
           component={TestFirestNotification}
         />
         <Stack.Screen name="RegisterUser" component={RegisterUser} />
+        <Stack.Screen name="UserDetails" component={UserDetails} />
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>

@@ -14,9 +14,10 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function TestFirestNotification({navigation}) {
-  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [userData, setUserData] = React.useState({});
   const [confirm, setConfirm] = React.useState(null);
@@ -48,7 +49,21 @@ export default function TestFirestNotification({navigation}) {
 
       // Sign-in the user with the credential
       await auth().signInWithCredential(googleCredential);
-      navigation.navigate('Map');
+      if (user) {
+        const UserDetail = {
+          name: user.name,
+          email: user.email,
+          uid: user.id,
+        };
+        await firebase
+          .firestore()
+          .collection('Users')
+          .doc(user.id)
+          .set(UserDetail);
+        await AsyncStorage.setItem('user', JSON.stringify(UserDetail));
+        navigation.navigate('UserDetails');
+        Alert.alert('User Logged In Successfully');
+      }
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // Handle the user canceling the sign-in request
@@ -80,7 +95,7 @@ export default function TestFirestNotification({navigation}) {
   }, []);
 
   const onChangeName = text => {
-    setName(text);
+    setEmail(text);
   };
   const onChangePassword = text => {
     setPassword(text);
@@ -94,10 +109,20 @@ export default function TestFirestNotification({navigation}) {
     try {
       const response = await firebase
         .auth()
-        .signInWithEmailAndPassword(name, password);
+        .signInWithEmailAndPassword(email, password);
       if (response) {
+        await firebase
+          .firestore()
+          .collection('Users')
+          .where('uid', '==', response.user.uid)
+          .get()
+          .then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+              AsyncStorage.setItem('user', JSON.stringify(doc.data()));
+            });
+          });
         Alert.alert('User Logged In Successfully');
-        navigation.navigate('Map');
+        navigation.navigate('UserDetails');
       }
     } catch (error) {
       console.log('Error in onPressLogin', error);
@@ -126,7 +151,7 @@ export default function TestFirestNotification({navigation}) {
           <TextInput
             placeholder="Enter Email"
             style={styles.inputsty}
-            value={name}
+            value={email}
             onChangeText={onChangeName}
             placeholderTextColor={'gray'}
           />
