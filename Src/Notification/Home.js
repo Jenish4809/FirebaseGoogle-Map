@@ -3,12 +3,9 @@ import React from 'react';
 import CSafeAreaView from '../Common/CSafeAreaView';
 import {firebase} from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home({route, navigation}) {
-  // let {user} = route.params;
-
-  // const [userInfo, setUserInfo] = React.useState(user);
-
   const onPressLogout = async () => {
     try {
       await GoogleSignin.signOut();

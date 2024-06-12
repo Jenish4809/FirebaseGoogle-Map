@@ -5,6 +5,8 @@ import Home from './Src/Notification/Home';
 import Map from './Src/Notification/Map';
 import RegisterUser from './Src/Notification/RegisterUser';
 import UserDetails from './Src/Notification/UserDetails';
+import DynamicLink from './Src/Notification/DynamicLink';
+import ImageUpload from './Src/Notification/ImageUpload';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -20,6 +22,8 @@ export default function App() {
         />
         <Stack.Screen name="RegisterUser" component={RegisterUser} />
         <Stack.Screen name="UserDetails" component={UserDetails} />
+        <Stack.Screen name="DynamicLink" component={DynamicLink} />
+        <Stack.Screen name="ImageUpload" component={ImageUpload} />
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>

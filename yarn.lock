@@ -2175,6 +2175,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-clipboard/clipboard@npm:^1.14.1":
+  version: 1.14.1
+  resolution: "@react-native-clipboard/clipboard@npm:1.14.1"
+  peerDependencies:
+    react: 16.9.0 || 16.11.0 || 16.13.1 || 17.0.1 || 17.0.2 || 18.0.0 || 18.1.0 || 18.2.0
+    react-native: ^0.61.5 || ^0.62.3 || ^0.63.2 || ^0.64.2 || ^0.65.0 || ^0.66.0 || ^0.67.0 || ^0.68.0 || ^0.69.0 || ^0.70.0 || ^0.71.0 || ^0.72.0 || ^0.73.0
+    react-native-macos: ^0.61.0 || ^0.62.0 || ^0.63.0 || ^0.64.0 || ^0.65.0 || ^0.66.0 || ^0.67.0 || ^0.68.0 || ^0.69.0 || ^0.70.0 || ^0.71.0 || ^0.72.0 || ^0.73.0
+    react-native-windows: ^0.61.0 || ^0.62.0 || ^0.63.0 || ^0.64.0 || ^0.65.0 || ^0.66.0 || ^0.67.0 || ^0.68.0 || ^0.69.0 || ^0.70.0 || ^0.71.0 || ^0.72.0 || ^0.73.0
+  checksum: 005ce2bee4d6e30b2a6b11be0d0ee169ab108d24f2a9b518b0ba8e5b96616c6dfb089c28644c1b5e3c1b9aa786c92cbf781e525223f56ab8589da1df79cae31f
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:13.6.6":
   version: 13.6.6
   resolution: "@react-native-community/cli-clean@npm:13.6.6"
@@ -2388,12 +2400,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-firebase/dynamic-links@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@react-native-firebase/dynamic-links@npm:20.1.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.1.0
+    expo: ">=47.0.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: dc2b2ff148c6a4db2918b3c690f3e06e8712dca8f2710afc4afffd0d5bdf5512bd2132f2068b2a62e80cece30f11257aade12a55451e4d7a353ffa42a7cfa545
+  languageName: node
+  linkType: hard
+
 "@react-native-firebase/firestore@npm:^20.1.0":
   version: 20.1.0
   resolution: "@react-native-firebase/firestore@npm:20.1.0"
   peerDependencies:
     "@react-native-firebase/app": 20.1.0
   checksum: ceb28720f786f406765ccd9219bc0069cda137e0fc399253e82a846a93716f6c97c2a6d629eedbac92f5e16612dba799580d50f6c3f619b6904ddfb775d3c88a
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/storage@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@react-native-firebase/storage@npm:20.1.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.1.0
+  checksum: 67c91a60b404767d1d5b76e6456397cc88dadafe8ddbb41206d259a3d9df01c27667b2863b7c3528e726317d4a8e83ccce9e0ea4d1da324a5a47f81e324c0a0d
   languageName: node
   linkType: hard
 
@@ -3170,9 +3204,12 @@ __metadata:
     "@babel/runtime": ^7.20.0
     "@notifee/react-native": ^7.8.2
     "@react-native-async-storage/async-storage": ^1.23.1
+    "@react-native-clipboard/clipboard": ^1.14.1
     "@react-native-firebase/app": ^20.1.0
     "@react-native-firebase/auth": ^20.1.0
+    "@react-native-firebase/dynamic-links": ^20.1.0
     "@react-native-firebase/firestore": ^20.1.0
+    "@react-native-firebase/storage": ^20.1.0
     "@react-native-google-signin/google-signin": ^12.1.1
     "@react-native/babel-preset": 0.74.83
     "@react-native/eslint-config": 0.74.83
@@ -3190,6 +3227,7 @@ __metadata:
     react-native: 0.74.1
     react-native-geolocation-service: ^5.3.1
     react-native-google-places-autocomplete: ^2.5.6
+    react-native-image-crop-picker: ^0.41.1
     react-native-maps: ^1.15.6
     react-native-maps-directions: ^1.9.0
     react-native-permissions: ^4.1.5
@@ -8314,6 +8352,15 @@ __metadata:
   peerDependencies:
     react-native: ">= 0.59"
   checksum: 132911198f217eff064f658517a06d3b57cba2081f40462f9cec7eabfe0409dc30a9ea519377eff77924f69ceb94662fb88105e87bf5071c02120292519a64eb
+  languageName: node
+  linkType: hard
+
+"react-native-image-crop-picker@npm:^0.41.1":
+  version: 0.41.1
+  resolution: "react-native-image-crop-picker@npm:0.41.1"
+  peerDependencies:
+    react-native: ">=0.40.0"
+  checksum: e8c1b6fad6d52e32be5b684dde8f82830b31ef62cdc42591ef98534cbc7bd566b826670f6fde0401dfe1cc97c1fc5d0476e582c804b7e258db1885eac28c7800
   languageName: node
   linkType: hard
 

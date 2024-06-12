@@ -1,19 +1,27 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Alert, Button, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import CSafeAreaView from '../Common/CSafeAreaView';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth, {firebase} from '@react-native-firebase/auth';
 
 export default function UserDetails({navigation}) {
   const [user, setUser] = React.useState({});
+  const [email, setEmail] = React.useState();
   useEffect(() => {
     AsyncStorage.getItem('user').then(value => {
       const user = JSON.parse(value);
       setUser(user);
+      setEmail(user.email);
     });
   }, []);
 
+  const onPressEmailVerify = async () => {
+    const res = await auth().currentUser.sendEmailVerification();
+    Alert.alert('Email send Successfully');
+  };
+
   const onPressNext = () => {
-    navigation.navigate('Home');
+    navigation.navigate('DynamicLink');
   };
   return (
     <CSafeAreaView extraStyle={{backgroundColor: 'transparent'}}>
@@ -23,6 +31,7 @@ export default function UserDetails({navigation}) {
           <Text style={styles.text}>Name: {user.name}</Text>
           <Text style={styles.text}>Email: {user.email}</Text>
           <Text style={styles.text}>Uid: {user.uid}</Text>
+          <Button title="Email Verify" onPress={onPressEmailVerify} />
           <Button title="Next Page" onPress={onPressNext} />
         </View>
       </View>

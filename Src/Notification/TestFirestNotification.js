@@ -10,6 +10,7 @@ import {
 import React, {useEffect} from 'react';
 import CSafeAreaView from '../Common/CSafeAreaView';
 import auth, {firebase} from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import {
   GoogleSignin,
   statusCodes,
@@ -55,11 +56,7 @@ export default function TestFirestNotification({navigation}) {
           email: user.email,
           uid: user.id,
         };
-        await firebase
-          .firestore()
-          .collection('Users')
-          .doc(user.id)
-          .set(UserDetail);
+        await firestore().collection('Users').doc(user.id).set(UserDetail);
         await AsyncStorage.setItem('user', JSON.stringify(UserDetail));
         navigation.navigate('UserDetails');
         Alert.alert('User Logged In Successfully');
@@ -105,14 +102,18 @@ export default function TestFirestNotification({navigation}) {
     navigation.navigate('RegisterUser');
   };
 
+  const onPressForgotPassword = async () => {
+    await auth().sendPasswordResetEmail(email);
+    Alert.alert('Reset Link send successfully');
+  };
+
   const onPressLogin = async () => {
     try {
       const response = await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
       if (response) {
-        await firebase
-          .firestore()
+        await firestore()
           .collection('Users')
           .where('uid', '==', response.user.uid)
           .get()
@@ -177,6 +178,7 @@ export default function TestFirestNotification({navigation}) {
           <Button title="Login" onPress={onPressLogin} />
           <Button title="Google Sign In" onPress={onGoogleButtonPress} />
           <Button title="Confirm Code" onPress={() => confirmCode()} />
+          <Button title="Forgot Password" onPress={onPressForgotPassword} />
         </View>
       </View>
     </CSafeAreaView>
